@@ -33,15 +33,12 @@ public class ConditionDemo1 {
 
     public static void main(String[] args) throws InterruptedException {
         ConditionDemo1 conditionDemo1 = new ConditionDemo1();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(1000);
-                    conditionDemo1.method2();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+        new Thread(() -> {
+            try {
+                Thread.sleep(1000);
+                conditionDemo1.method2();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }).start();
         conditionDemo1.method1();

@@ -3,7 +3,7 @@ package _3_lock.reentrantlock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * 描述：     锁的基本使用：演示多线程预定电影院座位
+ * 描述： (不重要栗子)    锁的基本使用：演示多线程预定电影院座位
  */
 public class _1_CinemaBookSeat {
 

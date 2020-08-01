@@ -6,18 +6,18 @@ import java.util.concurrent.Executors;
 /**
  * 描述：     演示关闭线程池
  */
-public class ShutDown {
+public class _9_ShutDown {
 
     public static void main(String[] args) throws InterruptedException {
-        ExecutorService executorService = Executors.newFixedThreadPool(10);
+        ExecutorService threadPool = Executors.newFixedThreadPool(10);
         for (int i = 0; i < 100; i++) {
-            executorService.execute(new ShutDownTask());
+            threadPool.execute(new ShutDownTask());
         }
         Thread.sleep(1500);
 //        List<Runnable> runnableList = executorService.shutdownNow();
 
-        executorService.shutdown();
-        executorService.execute(new ShutDownTask());
+        threadPool.shutdown();
+        threadPool.execute(new ShutDownTask());
 //        boolean b = executorService.awaitTermination(7L, TimeUnit.SECONDS);
 //        System.out.println(b);
 //        System.out.println(executorService.isShutdown());

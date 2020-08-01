@@ -6,7 +6,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * 描述：     演示用Condition实现生产者消费者模式
+ * 描述： （重要栗子） 演示用Condition实现生产者消费者模式
  */
 public class ConditionDemo2 {
 
@@ -31,7 +31,7 @@ public class ConditionDemo2 {
             while (true) {
                 lock.lock();
                 try {
-                    while (queue.size() == 0) {
+                    if (queue.size() == 0) {
                         System.out.println("队列空，等待数据");
                         try {
                             notEmpty.await();
@@ -47,8 +47,6 @@ public class ConditionDemo2 {
                 }
             }
         }
-
-
     }
 
     class Producer extends Thread {
@@ -58,7 +56,7 @@ public class ConditionDemo2 {
             while (true) {
                 lock.lock();
                 try {
-                    while (queue.size() == queueSize) {
+                    if (queue.size() == queueSize) {
                         System.out.println("队列满，等待有空余");
                         try {
                             notFull.await();

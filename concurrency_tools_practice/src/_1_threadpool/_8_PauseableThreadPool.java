@@ -78,20 +78,20 @@ public class _8_PauseableThreadPool extends ThreadPoolExecutor {
         }
     }
 
+
     public static void main(String[] args) throws InterruptedException {
-        _8_PauseableThreadPool pauseableThreadPool = new _8_PauseableThreadPool(10, 20, 10l,
-                TimeUnit.SECONDS, new LinkedBlockingQueue<>());
-        Runnable runnable = new Runnable() {
-            @Override
-            public void run() {
-                System.out.println("我被执行");
-                try {
-                    Thread.sleep(10);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+        _8_PauseableThreadPool pauseableThreadPool = new _8_PauseableThreadPool(10, 20,
+                                                            10l, TimeUnit.SECONDS, new LinkedBlockingQueue<>());
+
+        Runnable runnable = () -> {
+            System.out.println("我被执行");
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         };
+
         for (int i = 0; i < 10000; i++) {
             pauseableThreadPool.execute(runnable);
         }
@@ -101,6 +101,5 @@ public class _8_PauseableThreadPool extends ThreadPoolExecutor {
         Thread.sleep(1500);
         pauseableThreadPool.resume();
         System.out.println("线程池被恢复了");
-
     }
 }

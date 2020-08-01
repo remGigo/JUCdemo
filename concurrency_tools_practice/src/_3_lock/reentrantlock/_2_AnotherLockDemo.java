@@ -4,7 +4,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * 描述：     演示ReentrantLock的基本用法：被中断
+ * 描述：  （不重要栗子） 演示ReentrantLock的基本用法：被中断
  */
 public class _2_AnotherLockDemo {
 

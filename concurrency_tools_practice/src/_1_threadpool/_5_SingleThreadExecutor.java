@@ -8,9 +8,9 @@ import java.util.concurrent.Executors;
  */
 public class _5_SingleThreadExecutor {
     public static void main(String[] args) {
-        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        ExecutorService threadPool = Executors.newSingleThreadExecutor();
         for (int i = 0; i < 1000; i++) {
-            executorService.execute(new Task());
+            threadPool.execute(new Task());
         }
     }
 }

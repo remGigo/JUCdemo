@@ -8,5 +8,8 @@ import java.util.concurrent.ConcurrentHashMap;
 public class ConcurrentHashMapDemo {
     public static void main(String[] args) {
         ConcurrentHashMap<String,String> concurrentHashMap = new ConcurrentHashMap<>();
+        concurrentHashMap.put("mxm","ddddd");
+        String mxm = concurrentHashMap.get("mxm");
+        System.out.println(mxm);
     }
 }
